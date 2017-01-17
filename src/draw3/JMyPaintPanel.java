@@ -1,11 +1,13 @@
 package draw3;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class JMyPaintPanel extends JPanel {
 	/**
@@ -50,5 +52,11 @@ public class JMyPaintPanel extends JPanel {
 			g2d.setStroke(stil);
 			drwo.paint(g2d);
 		}
+	}
+	
+	public void clear() {
+		this.drawobjects = new ArrayList<Drawobject>();
+		this.setBorder(new LineBorder(Color.black));
+		this.paintComponent(getGraphics());
 	}
 }
