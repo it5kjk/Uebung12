@@ -91,7 +91,11 @@ public class Draw3 extends JFrame {
 		
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			if (draw && drawingShapes.getSelection() != null) {
+			if (drawingShapes.getSelection() == null) {
+				JOptionPane.showMessageDialog(
+					panelDrawPanel, "No item selected!", "No selection",
+					JOptionPane.ERROR_MESSAGE);
+			} else if (draw) {
 				int xend = e.getX();
 				int yend = e.getY();
 				x2 = xend - x1;
@@ -99,10 +103,6 @@ public class Draw3 extends JFrame {
 				drawWithMouse(x1, y1, x2, y2, xend, yend);
 				draw = false;
 				super.mouseReleased(e);
-			} else {
-				JOptionPane.showMessageDialog(
-					panelDrawPanel, "No item selected!", "No selection",
-					JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	};
