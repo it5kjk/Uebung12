@@ -1,16 +1,13 @@
 package task1;
 
-import task2.*;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import task2.JZielPanel;
 
 public class Testframe extends JFrame {
 
@@ -20,6 +17,7 @@ public class Testframe extends JFrame {
 	private static final long serialVersionUID = -6164832045668251551L;
 	private JPanel contentPane;
 	private JZielPanel tPanel;
+	@SuppressWarnings("unused")
 	private JMyButton mbtnHallo;
 
 	/**
@@ -51,7 +49,6 @@ public class Testframe extends JFrame {
 //		contentPane.setSize(this.getSize().width, this.getSize().height);
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
-		
 		
 //		mbtnHallo = new JMyButton("Testbutton");
 //		mbtnHallo.setText("Hallo");
