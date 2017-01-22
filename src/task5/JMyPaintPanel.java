@@ -41,6 +41,7 @@ public class JMyPaintPanel extends JPanel {
 		for (TextDrawItem drawItem : itemList) {
 			g2d.setColor(drawItem.getColor());
 			g2d.setFont(drawItem.getFont());
+			drawItem.paint(g2d);
 		}
 		super.paintComponent(g);
 	}
