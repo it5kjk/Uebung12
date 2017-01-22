@@ -1,7 +1,10 @@
 package task5;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JPanel;
 
@@ -11,26 +14,34 @@ public class JMyPaintPanel extends JPanel {
 	 * JPanel extending class to store draw items
 	 */
 	private static final long serialVersionUID = 3115189205698337928L;
-	private ArrayList<DrawItem> itemList;
+	private ArrayList<TextDrawItem> itemList;
 	
 	public JMyPaintPanel() {
-		itemList = new ArrayList<DrawItem>();
+		itemList = new ArrayList<TextDrawItem>();
 	}
 
 	public JMyPaintPanel(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
-		itemList = new ArrayList<DrawItem>();
+		itemList = new ArrayList<TextDrawItem>();
 	}
 
 	public JMyPaintPanel(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
-		itemList = new ArrayList<DrawItem>();
+		itemList = new ArrayList<TextDrawItem>();
 	}
 
 	public JMyPaintPanel(LayoutManager layout) {
 		super(layout);
-		itemList = new ArrayList<DrawItem>();
+		itemList = new ArrayList<TextDrawItem>();
 	}
 	
-	
+	@Override
+	protected void paintComponent(Graphics g) {
+		Graphics2D g2d = (Graphics2D)g;
+		for (TextDrawItem drawItem : itemList) {
+			g2d.setColor(drawItem.getColor());
+			g2d.setFont(drawItem.getFont());
+		}
+		super.paintComponent(g);
+	}
 }

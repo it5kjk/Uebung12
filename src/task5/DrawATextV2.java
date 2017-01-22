@@ -67,7 +67,7 @@ public class DrawATextV2 extends JFrame {
 
 	//frame constructor
 	public DrawATextV2() {
-		setTitle("DrawAText");
+		setTitle("DrawATextV2");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -75,8 +75,7 @@ public class DrawATextV2 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][]", "[grow]"));
 		
-		//TODO: switch drawPanel to JPanel extension class that can store draw items
-		drawPanel = new JPanel();
+		drawPanel = new JMyPaintPanel();
 		drawPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		drawPanel.setBackground(Color.WHITE);
 		drawPanel.addMouseListener(new MouseAdapter() {
