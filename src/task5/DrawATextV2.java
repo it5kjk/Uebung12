@@ -36,7 +36,7 @@ public class DrawATextV2 extends JFrame {
 	 */
 	private static final long serialVersionUID = -2598460274397292275L;
 	private JPanel contentPane;
-	private JPanel drawPanel;
+	private JMyPaintPanel drawPanel;
 	private JPanel controlPanel;
 	private JLabel lblInputText;
 	private JTextField tfInputText;
@@ -89,11 +89,7 @@ public class DrawATextV2 extends JFrame {
 				} else if (e.getButton() != MouseEvent.BUTTON3){
 					int x = e.getX();
 					int y = e.getY();
-					Graphics g = drawPanel.getGraphics();
-					Graphics2D g2d = (Graphics2D)g;
-					g2d.setColor(txtColor);
-					g2d.setFont(font);
-					g2d.drawString(input, x, y);
+					drawText(input, x, y);
 				}
 				super.mouseClicked(e);
 			}
@@ -140,5 +136,12 @@ public class DrawATextV2 extends JFrame {
 			}
 		});
 		controlPanel.add(btnSelectFont, "cell 0 4");
+	}
+	
+	private void drawText(String input, int x, int y) {
+		TextDrawItem textItem = new TextDrawItem(
+			input, font, txtColor, x, y);
+		drawPanel.addTextDrawItem(textItem);
+		drawPanel.repaint();
 	}
 }
