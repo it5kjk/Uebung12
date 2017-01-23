@@ -35,14 +35,18 @@ public class JMyPaintPanel extends JPanel {
 		itemList = new ArrayList<TextDrawItem>();
 	}
 	
+	public void addTextDrawItem(TextDrawItem item) {
+		itemList.add(item);
+	}
+	
 	@Override
 	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		for (TextDrawItem drawItem : itemList) {
 			g2d.setColor(drawItem.getColor());
 			g2d.setFont(drawItem.getFont());
 			drawItem.paint(g2d);
 		}
-		super.paintComponent(g);
 	}
 }
